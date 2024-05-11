@@ -96,37 +96,37 @@ function renderItems (){
 
 
             
-            <div class="d-flex border border-light rounded m-2 p-5  justify-content-between align-items-center ">
+            <div class="d-flex border border-dark rounded w-25   p-2  flex-wrap justify-content-between align-items-center ">
 
 
 
 
             
 
-            <div class="w-50 ">
+            <div class="w-100 flex-wrap ">
             
-            <img src="${carditems[i].image}" class="card-img-top  w-100" alt="...">
+            <img src="${carditems[i].image}" class="card-img-top  w-75" alt="...">
 
-            
-            <button class="btn btn-danger" onclick="deletQuantity(${i})">--</button>
-            ${carditems[i].quantity}
-            <button class="btn btn-danger" onclick="addQuantity(${i})">+</button>
-
+            <h5>${carditems[i].name}</h5>
+            <p>Camera: ${carditems[i].camera}</p>
+            <p>Bettery: ${carditems[i].battery}</p>
+            <p>Price: $${carditems[i].pric}</p>
+           
             </div>
 
 
 
 
 
-            <div class="w-50">
-            <h5>${carditems[i].name}</h5>
-            <h5>Camera: ${carditems[i].camera}</h5>
-            <h5>Bettery: ${carditems[i].battery}</h5>
-            <h5>Price: $${carditems[i].pric}</h5>
-            
-            <button class="btn btn-danger" onclick="deletitems(${i})">Delet to cart</button>
+            <div class="w-100 justify-content-between">
             
             
+            
+            <button class="btn btn-danger" onclick="deletQuantity(${i})">--</button>
+            ${carditems[i].quantity}
+            <button class="btn btn-danger" onclick="addQuantity(${i})">+</button>
+            
+            <button class="btn btn-danger m-2" onclick="deletitems(${i})">Delet to cart</button>
             </div>
 
 

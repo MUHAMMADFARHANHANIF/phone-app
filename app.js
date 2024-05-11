@@ -78,7 +78,7 @@ if(items === null){
 
 
 function addtocart(index) {
-alert('thank you')
+alert('Thank you for Shoping \n Add to Cart Enter....! OK')
 
  if (addarray.includes(mobilePhones[index])) {
 
