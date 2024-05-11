@@ -95,8 +95,9 @@ function renderItems (){
 
 
 
-            
-            <div class="d-flex border border-dark rounded w-25   p-2  flex-wrap justify-content-between align-items-center ">
+            <div class="card m-1" style="width: 18rem;">
+
+            <div class="d-flex border border-dark rounded w-100   p-2  flex-wrap justify-content-between align-items-center ">
 
 
 
@@ -112,7 +113,7 @@ function renderItems (){
             <p>Bettery: ${carditems[i].battery}</p>
             <p>Price: $${carditems[i].pric}</p>
            
-            </div>
+            </div></div>
 
 
 
