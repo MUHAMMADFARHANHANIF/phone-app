@@ -5,7 +5,9 @@ let carditems = JSON.parse(localStorage.getItem('cartitems'));
 
 // console.log(carditems);
 
-let div = document.querySelector('.items')
+let divs = document.querySelector('.items')
+let total = document.querySelector('#total')
+
 
 
 
@@ -49,19 +51,23 @@ function deletquantity(index) {
        
         
             function addQuantity (index){
-                div.innerHTML = ''
+                divs.innerHTML = ''
                 carditems[index].quantity += 1
+
                 renderItems()
             }
 
 
 
             function deletQuantity (index){
-                div.innerHTML = ''
+                divs.innerHTML = ''
                 carditems[index].quantity -= 1
+
                 renderItems()
+
                 if(carditems[index].quantity === 0){
-                    div.innerHTML = ''
+                    divs.innerHTML = ''
+                    total.innerHTML=""
                     carditems.splice(index , 1)
                     renderItems()
                 }
@@ -77,12 +83,18 @@ function deletquantity(index) {
 
 
 
-function renderItems (){
+function renderItems(){
+    
 
 
 
     if(carditems != null && carditems.length > 0 ){
+        let totalprice = 0;
         for(let i = 0; i < carditems.length; i++){
+
+            totalprice += carditems[i].price * carditems[i].quantity
+            
+
 
 
 
@@ -90,7 +102,7 @@ function renderItems (){
             
             console.log(carditems[i]);
             // div.innerHTML = ''
-            div.innerHTML += `
+            divs.innerHTML += `
 
 
 
@@ -111,7 +123,10 @@ function renderItems (){
             <h5>${carditems[i].name}</h5>
             <p>Camera: ${carditems[i].camera}</p>
             <p>Bettery: ${carditems[i].battery}</p>
-            <p>Price: $${carditems[i].pric}</p>
+            <p>Price: $${carditems[i].price }</p>
+
+            
+
            
             </div></div>
 
@@ -123,21 +138,31 @@ function renderItems (){
             
             
             
-            <button class="btn btn-danger" onclick="deletQuantity(${i})">--</button>
+            <button  onclick="deletQuantity(${i})">--</button>
             ${carditems[i].quantity}
-            <button class="btn btn-danger" onclick="addQuantity(${i})">+</button>
+            <button  onclick="addQuantity(${i})">+</button>
             
-            <button class="btn btn-danger m-2" onclick="deletitems(${i})">Delet to cart</button>
+            <button  onclick="deletitems(${i})">Delet to cart</button>
             </div>
 
 
+
+
+
+            `
+            total.innerHTML = `
+            <p>Bettery: ${totalprice}</p>
+
+
+            
             `
             // renderItems()
+            console.log(i);
 
         }
     }else{
         console.log('cart item empty ha maalik')
-        div.innerHTML = `
+        divs.innerHTML = `
         <h3 class="text-center">No Item Found...</h3>
         `
     }
@@ -148,9 +173,12 @@ function renderItems (){
 function deletitems(index) {
 
     
-        div.innerHTML = ''
+        divs.innerHTML = ''
+        total.innerHTML=''
+
         carditems.splice(index , 1)
   localStorage.setItem('car' , JSON.stringify(carditems));
+  
 
         renderItems()
     
@@ -160,7 +188,7 @@ function deletitems(index) {
 //  carditems = JSON.parse(localStorage.getItem('cartitems'));
 
 
-// renderItems()
+renderItems()
 }
 
 renderItems()
