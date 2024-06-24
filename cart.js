@@ -102,7 +102,9 @@ function renderItems(){
             
             console.log(carditems[i]);
             // div.innerHTML = ''
-            divs.innerHTML += `
+            divs.innerHTML += 
+            
+            `
 
 
 
@@ -138,11 +140,13 @@ function renderItems(){
             
             
             
-            <button  onclick="deletQuantity(${i})">--</button>
+            <button  onclick="deletQuantity(${i})" >--</button>
+
             ${carditems[i].quantity}
-            <button  onclick="addQuantity(${i})">+</button>
             
-            <button  onclick="deletitems(${i})">Delet to cart</button>
+            <button  onclick="addQuantity(${i})" >+</button>
+            
+            <button  onclick="deletitems(${i})" >Delet to cart</button>
             </div>
 
 
@@ -151,7 +155,7 @@ function renderItems(){
 
             `
             total.innerHTML = `
-            <p>Bettery: ${totalprice}</p>
+            <p>Total Price: $${totalprice}</p>
 
 
             
@@ -177,7 +181,8 @@ function deletitems(index) {
         total.innerHTML=''
 
         carditems.splice(index , 1)
-  localStorage.setItem('car' , JSON.stringify(carditems));
+
+  localStorage.setItem('car' , JSON.stringify('carditems'));
   
 
         renderItems()
@@ -188,7 +193,7 @@ function deletitems(index) {
 //  carditems = JSON.parse(localStorage.getItem('cartitems'));
 
 
-renderItems()
+// renderItems()
 }
 
 renderItems()
